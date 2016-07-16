@@ -1,0 +1,36 @@
+body,ul,li,input{
+	margin: 0;
+	padding:0;
+	list-style: none;
+}
+html,body{
+	height: 100%;
+}
+.box{
+	margin-left: 120px;
+	height: 100%;
+}
+.box .left{
+	width: 120px;
+	margin-left: -120px;
+	float: left;
+	height: 100%;
+	background: red;
+}
+.box .right{
+	width: 100%;
+	height: 100%;
+	float: right;
+	/*background: blue;*/
+}
+.left>div{
+	width: 100%;
+	height: 24px;
+	padding: 10px 0;
+	font-size: 30px;
+	color: #fff;
+	text-align: center;
+	cursor: pointer;
+	user-select:none;
+	-webkit-user-select:none;
+}
