@@ -138,26 +138,27 @@ palette.prototype.pencil=function(){
 }
 
 palette.prototype.eraser=function(){
-	var w=30;
+	var w=50;
 	var that=this;
-	var a=document.createElement("div");
-	a.style.cssText="width:30px;height:30px;position:absolute;border:1px solid red";
-	document.body.appendChild(a);
-	this.canvas.onmousedown=function(e){
-
+	
+	this.copy.onmousedown=function(e){
 		var sx=e.offsetX;
 		var sy=e.offsetY;
+		var a=document.createElement("div");
+		a.style.cssText="width:+"+w+"px;height:"+w+"px;position:absolute;"
+		
 		document.onmousemove=function(e){
 			var ex=e.offsetX;
 			var ey=e.offsetY;
-			a.style.left=ex;
-			a.style.top=ey;
+			a.style.left=(ex-w/2)+"px";
+			a.style.top=(ey-w/2)+"px";
 			that.o.clearRect(ex-w/2,ey-w/2,w,w);
-
+			that.copy.parentNode.appendChild(a)
 		}
-		document.onmouseup=function(){
+		document.onmouseup=function(e){
 			document.onmousemove=null;
 			document.onmouseup=null;
 		}
 	}
+
 }
